@@ -9,4 +9,7 @@ Rails.application.routes.draw do
       get 'data'
     end
   end
+
+root 'products#index'
+
 end

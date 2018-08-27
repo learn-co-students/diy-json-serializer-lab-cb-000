@@ -1,0 +1,12 @@
+<%= content_tag :h1, @product.name, class: 'post_name' %>
+<%= content_tag :h3, "Price:" %>
+<%= content_tag :p, "#{@product.price}", class: 'post_price' %>
+<%= content_tag :h3, "Inventory:" %>
+<%= content_tag :p, @product.inventory, class: 'post_inventory' %>
+<%= content_tag :h3, "Description:" %>
+<%= content_tag :p, @product.description, class: 'post_description' %>
+<%= link_to "Next..", "#", class: 'js-next', data: {id: @product.id} %>
+
+<%= content_tag :style, type: 'text/javascript', charset: 'utf-8' do %>
+
+<% end %>
