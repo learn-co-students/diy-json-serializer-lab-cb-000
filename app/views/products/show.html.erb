@@ -1,6 +1,6 @@
 <%= content_tag :h1, @product.name, class: 'post_name' %>
 <%= content_tag :h3, "Price:" %>
-<%= content_tag :p, "#{@product.price}", class: 'post_price' %>
+<%= content_tag :p, "$#{@product.price}", class: 'post_price' %>
 <%= content_tag :h3, "Inventory:" %>
 <%= content_tag :p, @product.inventory, class: 'post_inventory' %>
 <%= content_tag :h3, "Description:" %>
