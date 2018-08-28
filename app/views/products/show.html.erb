@@ -5,8 +5,19 @@
 <%= content_tag :p, @product.inventory, class: 'post_inventory' %>
 <%= content_tag :h3, "Description:" %>
 <%= content_tag :p, @product.description, class: 'post_description' %>
-<%= link_to "Next..", "#", class: 'js-next', data: {id: @product.id} %>
+<%= link_to "Next Product", "#", class: 'js-next', data: {id: @product.id} %>
 
-<%= content_tag :style, type: 'text/javascript', charset: 'utf-8' do %>
-
-<% end %>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $(".js-next").on("click", function(e){
+      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+      $.getJSON("/products/"+nextId+"/data", function(data){
+        $(".post_name").text(data["name"]);
+        $(".post_price").text(data["price"]);
+        $(".post_inventory").text(data["inventory"]);
+        $(".post_description").text(data["description"]);
+        $(".js-next").attr("data-id", data["id"]);
+      });
+    });
+  });
+</script>
