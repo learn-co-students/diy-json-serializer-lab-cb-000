@@ -1,0 +1,20 @@
+<h3 id="name"><%= @product.name %></h3>
+<div id="productId"><%= @product.id %> </div>
+<div id="description"><%= truncate(@product.description) %></div>
+<div id="inventory" > <%= @product.inventory %> </div>
+<div id="price" > <%= @product.price %> </div>
+<button class="next" data-id="<%= @product.id %>">More Info</button>
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".next").on('click', function() {
+    var id = document.getElementById('productId').value + 1;
+    $.get("/products/" + id + "/data", function(data) {
+      $("#name").value = data.name;
+      $("#description").value = data.description;
+      $("#inventory").value = data.inventory;
+      $("#price").value = data.price;
+      $("#productId").value = data.productId;
+    });
+  });
+});
+</script>
