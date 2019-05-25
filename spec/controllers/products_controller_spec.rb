@@ -42,7 +42,7 @@ RSpec.describe ProductsController, type: :controller do
       body = JSON.parse(response.body)
       expect(body["name"]).to eq product.name
       expect(body["description"]).to eq product.description
-      expect(body["inventory"]).to eq product.inventory
+      expect(body["inventory"]).to eq product.inventory.to_s
     end
   end
 
